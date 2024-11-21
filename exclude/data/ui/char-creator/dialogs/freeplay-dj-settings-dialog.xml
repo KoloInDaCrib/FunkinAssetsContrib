@@ -8,5 +8,32 @@
         <textfield id="bgTextField3" placeholder="PROTECT YO NUTS" width="100%" height="100%" />
       </vbox>
     </frame>
+
+    <hbox width="100%">
+      <frame text="Good Rank" width="50%">
+        <grid width="100%">
+          <label text="Start"/>
+          <number-stepper id="introStartFrame" pos="0"/>
+          <label text="End"/>
+          <number-stepper id="introEndFrame" pos="4"/>
+          <label text="Loop Start"/>
+          <number-stepper id="loopStartFrame" pos="4"/>
+          <label text="Loop End"/>
+          <number-stepper id="loopEndFrame" pos="-1"/>
+        </grid>
+      </frame>
+      <frame text="Bad Rank" width="50%">
+        <grid width="100%">
+          <label text="Start"/>
+          <number-stepper id="introBadStartFrame" pos="0"/>
+          <label text="End"/>
+          <number-stepper id="introBadEndFrame" pos="4"/>
+          <label text="Loop Start"/>
+          <number-stepper id="loopBadStartFrame" pos="4"/>
+          <label text="Loop End"/>
+          <number-stepper id="loopBadEndFrame" pos="-1"/>
+        </grid>
+      </frame>
+    </hbox>
   </vbox>
 </collapsible-dialog>
