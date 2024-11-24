@@ -15,7 +15,10 @@
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Esc" />
   </menu>
 
-  <menu text="Edit" id="menubarMenuEdit">
+  <menu text="View" id="menubarMenuView">
+    <menu-checkbox id="menubarCheckViewPivot" text="Show Atlas Pivot" tooltip="Show the Pivot Point of any Atlas Object."/>
+    <menu-checkbox id="menubarCheckViewBase" text="Show Atlas Base" tooltip="Show the Base Point of any Atlas Object."/>
+    <menu-checkbox id="menubarCheckViewMidpoint" text="Show Midpoint" tooltip="Show the Middle Point of any non-Atlas Object."/>
   </menu>
 
   <menu text="Pages" id="menubarMenuPages">
@@ -27,6 +30,10 @@
 
   <menu text="Settings" id="menubarMenuSettings">
 
+  </menu>
+
+  <menu text="Help" id="menubarMenuHelp">
+    <menu-item id="menubarItemAbout" text="About..." />
   </menu>
 
   <spacer width="100%" />
