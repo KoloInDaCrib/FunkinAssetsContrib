@@ -15,10 +15,19 @@
     <menu-item id="menubarItemExit" text="Exit" shortcutText="Esc" />
   </menu>
 
-  <menu text="View" id="menubarMenuView">
-    <menu-checkbox id="menubarCheckViewPivot" text="Show Atlas Pivot" tooltip="Show the Pivot Point of any Atlas Object."/>
-    <menu-checkbox id="menubarCheckViewBase" text="Show Atlas Base" tooltip="Show the Base Point of any Atlas Object."/>
-    <menu-checkbox id="menubarCheckViewMidpoint" text="Show Midpoint" tooltip="Show the Middle Point of any non-Atlas Object."/>
+  <menu text="Tools" id="menubarMenuTools">
+    <menu-checkbox id="menubarCheckToolsPivot" text="Show Atlas Pivot" tooltip="Show the Pivot Point of any Atlas Object."/>
+    <menu-checkbox id="menubarCheckToolsBase" text="Show Atlas Base" tooltip="Show the Base Point of any Atlas Object."/>
+    <menu-checkbox id="menubarCheckToolsMidpoint" text="Show Midpoint" tooltip="Show the Middle Point of any non-Atlas Object."/>
+    <menu-separator />
+    <menu-checkbox id="menubarCheckToolsFrames" text="Show Frame Text" tooltip="Show a Text indicating the Current Frame of any Object."/>
+    <vbox width="100%" style="padding: 5px;">
+      <label id="menubarLabelAnimSpeed" styleName="menuLabel" text="Animation Speed - 100%" />
+      <slider id="menubarSliderAnimSpeed" width="100%" majorTicks="10" minorTicks="5" pos="100" />
+    </vbox>
+    <menu-separator />
+    <menu-checkbox id="menubarCheckToolsLoop" text="Ignore Loop" tooltip="When selected, Animations will never loop during Preview."/>
+    <menu-checkbox id="menubarCheckToolsPause" text="Space to Pause" tooltip="When selected, SPACE key will be used to pause Animations instead of restarting them, which SHIFT + SPACE will be used for."/>
   </menu>
 
   <menu text="Pages" id="menubarMenuPages">
