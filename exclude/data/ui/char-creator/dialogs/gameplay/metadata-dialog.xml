@@ -42,25 +42,29 @@
         </frame>
       </vbox>
 
-      <frame text="Death Data" width="50%" height="100%">
-        <vbox width="100%">
-            <checkbox id="charHasDeathData" text="Enabled" />
-            <vbox id="charDeathBox" width="100%">
-
-                <section-header text="Camera Offsets" />
-                <hbox>
-                  <number-stepper id="charDeathCamOffsetX" pos="0" />
-                  <number-stepper id="charDeathCamOffsetY" pos="0" />
-                </hbox>
-
-                <section-header text="Camera Zoom" />
-                <number-stepper id="charDeathCamZoom" pos="1" min="0.11" />
-
-                <section-header text="Transition Delay" />
-                <number-stepper id="charDeathTransDelay" pos="0" min="0" />
-            </vbox>
-        </vbox>
-      </frame>
+      <vbox width="50%" height="100%">
+        <frame text="Name" width="100%">
+          <vbox>
+              <textfield id="charName" placeholder="Put your Character's Name here."/>
+          </vbox>
+        </frame>
+        <frame text="Death Data" width="100%">
+          <vbox width="100%">
+              <checkbox id="charHasDeathData" text="Enabled" />
+              <vbox id="charDeathBox" width="100%">
+                  <section-header text="Camera Offsets" />
+                  <hbox>
+                    <number-stepper id="charDeathCamOffsetX" pos="0" />
+                    <number-stepper id="charDeathCamOffsetY" pos="0" />
+                  </hbox>
+                  <section-header text="Camera Zoom" />
+                  <number-stepper id="charDeathCamZoom" pos="1" min="0.11" />
+                  <section-header text="Transition Delay" />
+                  <number-stepper id="charDeathTransDelay" pos="0" min="0" />
+              </vbox>
+          </vbox>
+        </frame>
+      </vbox>
     </hbox>
   </vbox>
 </collapsible-dialog>

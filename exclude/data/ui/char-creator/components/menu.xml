@@ -23,7 +23,7 @@
     <menu-checkbox id="menubarCheckToolsFrames" text="Show Frame Text" tooltip="Show a Text indicating the Current Frame of any Object."/>
     <vbox width="100%" style="padding: 5px;">
       <label id="menubarLabelAnimSpeed" styleName="menuLabel" text="Animation Speed - 100%" />
-      <slider id="menubarSliderAnimSpeed" width="100%" majorTicks="10" minorTicks="5" pos="100" />
+      <slider id="menubarSliderAnimSpeed" width="100%" majorTicks="10" minorTicks="5" pos="100" step="5"/>
     </vbox>
     <menu-separator />
     <menu-checkbox id="menubarCheckToolsLoop" text="Ignore Loop" tooltip="When selected, Animations will never loop during Preview."/>
