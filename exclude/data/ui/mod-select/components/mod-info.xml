@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window title="modidhere" width="550" height="500">
+  <window-title width="100%">
+    <image id="modWindowMoveUp" resource="haxeui-core/styles/shared/up-arrow-bright.png" verticalAlign="center" styleName="moveImage" imageScale="2.5" tooltip="Make the Mod load earlier."/>
+    <image id="modWindowMoveDown" resource="haxeui-core/styles/shared/down-arrow-bright.png" verticalAlign="center" styleName="moveImage" imageScale="2.5" tooltip="Make the Mod load later."/>
+  </window-title>
+
+  <hbox width="100%" height="100%">
+    <vbox width="150" height="100%">
+      <image id="modWindowIcon" style="border:1px solid $normal-border-color" scaleMode="fitinside" width="150" height="150"/>
+      <label text="Dependencies"/>
+      <scrollview width="100%" height="100%">
+        <label id="modWindowDependencies" text="Required: None"/>
+      </scrollview>
+    </vbox>
+
+    <vbox width="350" height="100%">
+      <scrollview width="100%" height="30" contentHeight="100%">
+        <label id="modWindowName" text="Your Mod's Name goes here!" style="font-size: 18px" height="100%" verticalAlign="center"/>
+      </scrollview>
+      <label text="Description" width="100%"/>
+      <scrollview width="100%" height="100%" contentWidth="100%">
+        <label id="modWindowDesc" width="100%" textAlign="left" text="Your Mod's Description goes here!"/>
+      </scrollview>
+    </vbox>
+  </hbox>
+
+  <window-footer width="100%">
+    <label id="modWindowLicense" text="Mod License"/>
+    <spacer width="100%"/>
+    <button id="modWindowVisitHomepage" text="Homepage" />
+    <button id="modWindowViewContributors" text="Contributors" />
+    <button id="modWindowViewContents" text="Contents" />
+  </window-footer>
+</window>
