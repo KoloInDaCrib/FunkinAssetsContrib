@@ -108,6 +108,11 @@
 		cursor: pointer;
 		}
 
+		.modBoxSelected {
+		background-color: #A7A7A7;
+		border: 1px solid #000;
+		}
+
 		.moveImage {
 			pointer-events: true;
 		}
