@@ -1,0 +1,134 @@
+
+import flixel.FlxG;
+import flixel.FlxSprite;
+import funkin.audio.visualize.ABotVis;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.play.boombox.Boombox;
+
+class ABotBoombox extends Boombox {
+
+  var pupilState:Int = 0;
+
+	var PUPIL_STATE_NORMAL = 0;
+	var PUPIL_STATE_LEFT = 1;
+
+	var abot:FlxAtlasSprite;
+	var abotViz:ABotVis;
+	var stereoBG:FlxSprite;
+	var eyeWhites:FlxSprite;
+	var pupil:FlxAtlasSprite;
+
+  function new() {
+    super();
+
+    stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
+		eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
+		pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
+		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
+		abotViz = new ABotVis(FlxG.sound.music, false);
+
+    abot.zIndex = 0;
+
+    abotViz.x = abot.x + 200;
+    abotViz.y = abot.y + 84;
+    abotViz.zIndex = abot.zIndex - 1;
+
+		eyeWhites.x = abot.x + 40;
+		eyeWhites.y = abot.y + 250;
+		eyeWhites.zIndex = abot.zIndex - 10;
+
+		pupil.x = abot.x - 507;
+		pupil.y = abot.y - 492;
+		pupil.zIndex = eyeWhites.zIndex + 5;
+
+		stereoBG.x = abot.x + 150;
+		stereoBG.y = abot.y + 30;
+		stereoBG.zIndex = abot.zIndex - 8;
+
+    add(abotViz);
+    add(abot);
+    add(eyeWhites);
+    add(pupil);
+    add(stereoBG);
+
+    this.refresh();
+  }
+
+  public override function onSongEvent(scriptEvent:SongEventScriptEvent)
+  {
+    super.onSongEvent(scriptEvent);
+    if (scriptEvent.eventData.eventKind == "FocusCamera")
+    {
+      var eventProps = scriptEvent.eventData.value;
+      switch (Std.parseInt(eventProps.char)) {
+        case 0:
+          movePupilsRight();
+        case 1:
+          movePupilsLeft();
+        default:
+      }
+    }
+
+   }
+
+  function movePupilsLeft():Void {
+    if (pupilState == PUPIL_STATE_LEFT) return;
+    trace('Move pupils left');
+    pupil.playAnimation('');
+    pupil.anim.curFrame = 0;
+    // pupilState = PUPIL_STATE_LEFT;
+  }
+
+  function movePupilsRight():Void {
+    if (pupilState == PUPIL_STATE_NORMAL) return;
+    trace('Move pupils right');
+    pupil.playAnimation('');
+    pupil.anim.curFrame = 17;
+    // pupilState = PUPIL_STATE_NORMAL;
+  }
+
+  override function onSongStart(event:ScriptEvent) {
+		abotViz.snd = FlxG.sound.music;
+		abotViz.initAnalyzer();
+	}
+
+	override function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry();
+		abotViz.dumpSound();
+	}
+
+  override function onBeatHit(event:SongTimeScriptEvent) {
+    super.onBeatHit();
+    abot.playAnimation("");
+    abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
+  }
+
+  function onUpdate(event:UpdateScriptEvent) {
+    super.onUpdate(event);
+
+    if (this.pupil?.anim?.isPlaying)
+    {
+      switch (pupilState)
+      {
+        case PUPIL_STATE_NORMAL:
+          if (pupil.anim.curFrame >= 17)
+          {
+            trace('Done moving pupils left');
+            pupilState = PUPIL_STATE_LEFT;
+            pupil.anim.pause();
+          }
+
+        case PUPIL_STATE_LEFT:
+          if (pupil.anim.curFrame >= 30)
+          {
+            trace('Done moving pupils right');
+            pupilState = PUPIL_STATE_NORMAL;
+            pupil.anim.pause();
+          }
+      }
+    }
+  }
+}
