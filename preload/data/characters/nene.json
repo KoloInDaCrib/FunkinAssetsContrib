@@ -100,7 +100,7 @@
   ],
   "boombox": {
     "scriptClass": "ABotBoombox",
-    "zIndex": -1,
+    "zIndex": -10,
     "offsets": [-350, -366]
   }
 }

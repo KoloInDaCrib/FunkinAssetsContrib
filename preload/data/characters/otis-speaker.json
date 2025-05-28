@@ -31,5 +31,10 @@
       "prefix": "shoot forward low0",
       "offsets": [260, 23]
     }
-  ]
+  ],
+  "boombox": {
+    "scriptClass": "ABotBoombox",
+    "zIndex": -10,
+    "offsets": [-400, -316]
+  }
 }

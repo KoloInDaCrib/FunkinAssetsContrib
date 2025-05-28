@@ -158,8 +158,6 @@ class NeneCharacter extends MultiSparrowCharacter {
 		}
 	}
 
-	var refershedLol:Bool = false;
-
 	public function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false):Void
 	{
 		super.playAnimation(name, restart, ignoreOther, reversed);

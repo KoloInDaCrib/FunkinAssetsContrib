@@ -66,5 +66,10 @@
       "prefix": "knife lower",
       "offsets": [0, 52]
     }
-  ]
+  ],
+  "boombox": {
+    "scriptClass": "ABotBoombox",
+    "zIndex": -10,
+    "offsets": [-350, -366]
+  }
 }

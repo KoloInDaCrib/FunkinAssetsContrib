@@ -60,7 +60,7 @@ class SchoolPicoStage extends Stage
 				rim.maskThreshold = 1;
 				rim.useAltMask = true;
 
-				character.scriptCall('addSunsetShaders');
+				this.getBoombox().scriptCall('addSunsetShaders');
 
 				character.animation.onFrameChange.add(function() {
 					if (getGirlfriend() != null)

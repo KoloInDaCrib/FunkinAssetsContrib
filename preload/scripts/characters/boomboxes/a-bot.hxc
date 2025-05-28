@@ -126,6 +126,35 @@ class ABotBoombox extends Boombox {
     abot.anim.curFrame = 1; // we start on this frame, since from Flash the symbol has a non-bumpin frame on frame 0
   }
 
+  function moveByNoteKind(kind:String) {
+		// Force ABot to look where the action is happening.
+		switch(event.note.kind) {
+			case "weekend-1-lightcan":
+				movePupilsLeft();
+			case "weekend-1-kickcan":
+				// movePupilsLeft();
+			case "weekend-1-kneecan":
+				// movePupilsLeft();
+			case "weekend-1-cockgun":
+				movePupilsRight();
+			case "weekend-1-firegun":
+				// movePupilsRight();
+			default: // Nothing
+		}
+	}
+
+	function onNoteHit(event:HitNoteScriptEvent)
+	{
+		super.onNoteHit(event);
+		moveByNoteKind(event.note.kind);
+	}
+
+	function onNoteMiss(event:NoteScriptEvent)
+	{
+		super.onNoteMiss(event);
+		moveByNoteKind(event.note.kind);
+	}
+
   function onUpdate(event:UpdateScriptEvent) {
     super.onUpdate(event);
 

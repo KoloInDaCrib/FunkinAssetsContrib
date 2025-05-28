@@ -41,5 +41,10 @@
       "frameIndices": [0, 1, 2, 3, 4, 5],
       "offsets": [0, 10]
     }
-  ]
+  ],
+  "boombox": {
+    "scriptClass": "ABotPixelBoombox",
+    "zIndex": -10,
+    "offsets": [50, -16]
+  }
 }
