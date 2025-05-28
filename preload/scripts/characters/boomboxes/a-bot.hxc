@@ -100,6 +100,26 @@ class ABotBoombox extends Boombox {
 		abotViz.dumpSound();
 	}
 
+  override public function resetPosition():Void
+  {
+    super.resetPosition();
+
+    abot.x = this.x;
+    abot.y = this.y;
+
+    abotViz.x = abot.x + 200;
+    abotViz.y = abot.y + 84;
+
+		eyeWhites.x = abot.x + 40;
+		eyeWhites.y = abot.y + 250;
+
+		pupil.x = abot.x - 507;
+		pupil.y = abot.y - 492;
+
+		stereoBG.x = abot.x + 150;
+		stereoBG.y = abot.y + 30;
+  }
+
   override function onBeatHit(event:SongTimeScriptEvent) {
     super.onBeatHit();
     abot.playAnimation("");
